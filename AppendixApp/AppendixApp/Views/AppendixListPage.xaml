@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppendixApp.Views.AppendixListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsRefreshing}"
+             Command="{Binding RefreshCommand}">
+            <ScrollView>
+                <ListView ItemsSource="{Binding Appendices}" RowHeight="120">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="8">
+
+                            <Label Text="{Binding Date}" />
+                            <Label FontAttributes="Bold" Text="{Binding UserID}" />
+                            <Label FontAttributes="Bold" Text="{Binding AccountNo}" />
+                            <Label Text="{Binding Text}" />
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            </ScrollView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

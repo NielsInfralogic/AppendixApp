@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="AppendixApp.Views.NewAppendixPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                <Label
+                    HorizontalOptions="Center"
+                    Text="UserID:"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <Entry
+                    HorizontalOptions="FillAndExpand"
+                    Keyboard="Numeric"
+                    Text="{Binding UserID}" />
+            </StackLayout>
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <Label
+                    Text="Account:"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <Picker
+                    Title="---Select---"
+                    HorizontalOptions="FillAndExpand"
+                    ItemsSource="{Binding Accounts}"
+                    SelectedItem="{Binding Account}" />
+            </StackLayout>
+            <StackLayout Grid.Row="2" Orientation="Horizontal">
+                <Label
+                    Text="Note:"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <Entry HorizontalOptions="FillAndExpand" Text="{Binding Note}" />
+            </StackLayout>
+            <StackLayout Grid.Row="3" Orientation="Horizontal">
+                <Label
+                    Text="Date:"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <DatePicker Date="{Binding AppendixDate, Mode=TwoWay}" HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout
+                Grid.Row="4"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal">
+                <Button
+                    x:Name="TakePhoto"
+                    Clicked="TakePhoto_Clicked"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Take picture" />
+                <Button
+                    x:Name="PickPhoto"
+                    Clicked="PickPhoto_Clicked"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Pick picture" />
+            </StackLayout>
+            <StackLayout Grid.Row="5">
+                <Image
+                    x:Name="PhotoImage"
+                    Margin="5,5,5,5"
+                    Aspect="AspectFit"
+                    BackgroundColor="AliceBlue"
+                    HeightRequest="200"
+                    HorizontalOptions="CenterAndExpand"
+                    Source="imageplaceholder.png"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="175" />
+
+
+            </StackLayout>
+            <StackLayout Grid.Row="6" Orientation="Vertical">
+                <Label
+                    Text="FileName:"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="100" />
+                <Label
+                    x:Name="FileName"
+                    HorizontalOptions="FillAndExpand"
+                    Text="{Binding FileName, Mode=TwoWay}" />
+            </StackLayout>
+            <StackLayout Grid.Row="7" Orientation="Horizontal">
+                <Button
+                    x:Name="UsePhoto"
+                    Command="{Binding UsePhotoCommand}"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Send appendix" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
