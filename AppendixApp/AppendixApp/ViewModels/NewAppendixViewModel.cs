@@ -117,15 +117,15 @@ namespace AppendixApp.ViewModels
 
             if (bytes != null)
             {
-                appendix.ImageData = Convert.ToBase64String(bytes);
+                appendix.ImageData = Convert.ToBase64String(bytes);  
 
                 StatusResponse response = await AppendixHttpClient.SendAppendixAsync(appendix);
 
-                if (response.Status > 0)
+                if (response.Status > 0) 
                     await DialogService.Show("Success", "Appendix saved OK", "Close");
                 else
                     await DialogService.Show("Error", response.Message, "Close");
-            }
+            } 
 
 
         }
